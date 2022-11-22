@@ -141,7 +141,7 @@ public class SampleApp extends Application {
 
 #### 引入
 ```
-    pod 'Glog'
+    pod 'Huolala-Glog'
 ```
 
 #### 快速开始

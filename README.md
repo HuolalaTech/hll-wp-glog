@@ -140,7 +140,7 @@ public class SampleApp extends Application {
 
 #### IMPORT
 ```
-    pod 'Glog'
+    pod 'Huolala-Glog'
 ```
 
 #### QUIC START
