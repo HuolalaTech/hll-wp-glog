@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package glog;
+
+option java_package = "glog.android.sample";
+option java_outer_classname = "LogProtos";
+
+message Log {
+  enum Level {
+    INFO = 0;
+    DEBUG = 1;
+    VERBOSE = 2;
+    WARN = 3;
+    ERROR = 4;
+  }
+  int64 sequence = 1;
+  string timestamp = 2;
+  Level logLevel = 3;
+  int32 pid = 4;
+  string tid = 5;
+  string tag = 6;
+  string msg = 7;
+}

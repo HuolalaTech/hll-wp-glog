@@ -1,0 +1,549 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2205ABC126132BFA00B03C47 /* Glog.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22D398E82612FA67008693BC /* Glog.h */; };
+		2205ABD32613838300B03C47 /* GlogBuffer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22D398E32612FA67008693BC /* GlogBuffer.h */; };
+		2205ABDD261383B800B03C47 /* GlogReader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22D398E22612FA67008693BC /* GlogReader.h */; };
+		22D2A81626F1F37B0066D42E /* AESCrypt.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D2A81426F1F37B0066D42E /* AESCrypt.h */; };
+		22D2A81726F1F37B0066D42E /* AESCrypt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D2A81526F1F37B0066D42E /* AESCrypt.cpp */; };
+		22D2A84426F1F4020066D42E /* openssl_cfb128.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D2A82426F1F4010066D42E /* openssl_cfb128.cpp */; };
+		22D2A84826F1F4020066D42E /* openssl_opensslconf.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D2A82826F1F4010066D42E /* openssl_opensslconf.h */; };
+		22D2A84A26F1F4020066D42E /* openssl_aes_core.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D2A82A26F1F4010066D42E /* openssl_aes_core.cpp */; };
+		22D2A84C26F1F4020066D42E /* openssl_cbc128.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D2A82C26F1F4010066D42E /* openssl_cbc128.cpp */; };
+		22D2A84D26F1F4020066D42E /* openssl_aes_locl.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D2A82D26F1F4010066D42E /* openssl_aes_locl.h */; };
+		22D2A84E26F1F4020066D42E /* openssl_aesv8-armx.S in Sources */ = {isa = PBXBuildFile; fileRef = 22D2A82F26F1F4010066D42E /* openssl_aesv8-armx.S */; };
+		22D2A85026F1F4020066D42E /* openssl_aes.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D2A83126F1F4010066D42E /* openssl_aes.h */; };
+		22D2A85126F1F4020066D42E /* openssl_arm_arch.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D2A83226F1F4010066D42E /* openssl_arm_arch.h */; };
+		22D2A85326F1F4020066D42E /* openssl_aes-armv4.S in Sources */ = {isa = PBXBuildFile; fileRef = 22D2A83426F1F4010066D42E /* openssl_aes-armv4.S */; };
+		22D2A85426F1F4020066D42E /* StopWatch.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 22D2A83526F1F4010066D42E /* StopWatch.hpp */; };
+		22D2A85526F1F4020066D42E /* uECC.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D2A83726F1F4010066D42E /* uECC.h */; };
+		22D2A85626F1F4020066D42E /* asm_avr_mult_square.inc in Sources */ = {isa = PBXBuildFile; fileRef = 22D2A83826F1F4010066D42E /* asm_avr_mult_square.inc */; };
+		22D2A85726F1F4020066D42E /* uECC_vli.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D2A83926F1F4010066D42E /* uECC_vli.h */; };
+		22D2A85826F1F4020066D42E /* curve-specific.inc in Sources */ = {isa = PBXBuildFile; fileRef = 22D2A83A26F1F4010066D42E /* curve-specific.inc */; };
+		22D2A85926F1F4020066D42E /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D2A83B26F1F4010066D42E /* types.h */; };
+		22D2A85A26F1F4020066D42E /* uECC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D2A83C26F1F4010066D42E /* uECC.cpp */; };
+		22D2A85B26F1F4020066D42E /* asm_arm.inc in Sources */ = {isa = PBXBuildFile; fileRef = 22D2A83E26F1F4010066D42E /* asm_arm.inc */; };
+		22D2A85C26F1F4020066D42E /* asm_arm_mult_square_umaal.inc in Sources */ = {isa = PBXBuildFile; fileRef = 22D2A83F26F1F4010066D42E /* asm_arm_mult_square_umaal.inc */; };
+		22D2A85D26F1F4020066D42E /* platform-specific.inc in Sources */ = {isa = PBXBuildFile; fileRef = 22D2A84026F1F4010066D42E /* platform-specific.inc */; };
+		22D2A85E26F1F4020066D42E /* asm_arm_mult_square.inc in Sources */ = {isa = PBXBuildFile; fileRef = 22D2A84126F1F4010066D42E /* asm_arm_mult_square.inc */; };
+		22D2A85F26F1F4020066D42E /* asm_avr.inc in Sources */ = {isa = PBXBuildFile; fileRef = 22D2A84226F1F4010066D42E /* asm_avr.inc */; };
+		22D2A89126F216900066D42E /* InternalLog.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22D398D82612FA66008693BC /* InternalLog.h */; };
+		22D2A89326F216DF0066D42E /* GlogPredef.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22D398DC2612FA66008693BC /* GlogPredef.h */; };
+		22D398EC2612FA67008693BC /* Glog_IO.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D398D52612FA66008693BC /* Glog_IO.h */; };
+		22D398ED2612FA67008693BC /* ZlibCompress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D398D62612FA66008693BC /* ZlibCompress.cpp */; };
+		22D398EE2612FA67008693BC /* ThreadLock.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D398D72612FA66008693BC /* ThreadLock.h */; };
+		22D398EF2612FA67008693BC /* InternalLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D398D82612FA66008693BC /* InternalLog.h */; };
+		22D398F02612FA67008693BC /* MessageQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D398D92612FA66008693BC /* MessageQueue.cpp */; settings = {COMPILER_FLAGS = "-fno-aligned-allocation"; }; };
+		22D398F12612FA67008693BC /* ThreadLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D398DA2612FA66008693BC /* ThreadLock.cpp */; };
+		22D398F22612FA67008693BC /* utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D398DB2612FA66008693BC /* utilities.h */; };
+		22D398F32612FA67008693BC /* GlogPredef.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D398DC2612FA66008693BC /* GlogPredef.h */; };
+		22D398F42612FA67008693BC /* Glog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D398DD2612FA67008693BC /* Glog.cpp */; };
+		22D398F52612FA67008693BC /* Compressor.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D398DE2612FA67008693BC /* Compressor.h */; };
+		22D398F62612FA67008693BC /* GlogFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D398DF2612FA67008693BC /* GlogFile.h */; };
+		22D398F72612FA67008693BC /* GlogReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D398E02612FA67008693BC /* GlogReader.cpp */; };
+		22D398F82612FA67008693BC /* MessageQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D398E12612FA67008693BC /* MessageQueue.h */; };
+		22D398F92612FA67008693BC /* GlogReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D398E22612FA67008693BC /* GlogReader.h */; };
+		22D398FA2612FA67008693BC /* GlogBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D398E32612FA67008693BC /* GlogBuffer.h */; };
+		22D398FB2612FA67008693BC /* utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D398E42612FA67008693BC /* utilities.cpp */; };
+		22D398FC2612FA67008693BC /* ZlibCompress.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D398E52612FA67008693BC /* ZlibCompress.h */; };
+		22D398FD2612FA67008693BC /* GlogFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D398E62612FA67008693BC /* GlogFile.cpp */; };
+		22D398FE2612FA67008693BC /* InternalLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D398E72612FA67008693BC /* InternalLog.cpp */; };
+		22D398FF2612FA67008693BC /* Glog.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D398E82612FA67008693BC /* Glog.h */; };
+		22D399002612FA67008693BC /* ScopedLock.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D398E92612FA67008693BC /* ScopedLock.h */; };
+		22D399012612FA67008693BC /* GlogBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D398EA2612FA67008693BC /* GlogBuffer.cpp */; };
+		22D399022612FA67008693BC /* Glog_IO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D398EB2612FA67008693BC /* Glog_IO.cpp */; };
+		22D3990726130000008693BC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D3990626130000008693BC /* libz.tbd */; };
+		22D3990A2613000A008693BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D399092613000A008693BC /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2205ABC026132BD300B03C47 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				22D2A89326F216DF0066D42E /* GlogPredef.h in CopyFiles */,
+				22D2A89126F216900066D42E /* InternalLog.h in CopyFiles */,
+				2205ABDD261383B800B03C47 /* GlogReader.h in CopyFiles */,
+				2205ABD32613838300B03C47 /* GlogBuffer.h in CopyFiles */,
+				2205ABC126132BFA00B03C47 /* Glog.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		22D2A81326F1F37B0066D42E /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		22D2A81426F1F37B0066D42E /* AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESCrypt.h; sourceTree = "<group>"; };
+		22D2A81526F1F37B0066D42E /* AESCrypt.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = AESCrypt.cpp; sourceTree = "<group>"; };
+		22D2A82326F1F4010066D42E /* openssl_md5_one.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = openssl_md5_one.cpp; sourceTree = "<group>"; };
+		22D2A82426F1F4010066D42E /* openssl_cfb128.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = openssl_cfb128.cpp; sourceTree = "<group>"; };
+		22D2A82526F1F4010066D42E /* openssl_md5_locl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_md5_locl.h; sourceTree = "<group>"; };
+		22D2A82726F1F4010066D42E /* openssl_md32_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_md32_common.h; sourceTree = "<group>"; };
+		22D2A82826F1F4010066D42E /* openssl_opensslconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_opensslconf.h; sourceTree = "<group>"; };
+		22D2A82A26F1F4010066D42E /* openssl_aes_core.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = openssl_aes_core.cpp; sourceTree = "<group>"; };
+		22D2A82B26F1F4010066D42E /* openssl_md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_md5.h; sourceTree = "<group>"; };
+		22D2A82C26F1F4010066D42E /* openssl_cbc128.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = openssl_cbc128.cpp; sourceTree = "<group>"; };
+		22D2A82D26F1F4010066D42E /* openssl_aes_locl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_aes_locl.h; sourceTree = "<group>"; };
+		22D2A82E26F1F4010066D42E /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		22D2A82F26F1F4010066D42E /* openssl_aesv8-armx.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = "openssl_aesv8-armx.S"; sourceTree = "<group>"; };
+		22D2A83126F1F4010066D42E /* openssl_aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_aes.h; sourceTree = "<group>"; };
+		22D2A83226F1F4010066D42E /* openssl_arm_arch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_arm_arch.h; sourceTree = "<group>"; };
+		22D2A83326F1F4010066D42E /* openssl_md5_dgst.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = openssl_md5_dgst.cpp; sourceTree = "<group>"; };
+		22D2A83426F1F4010066D42E /* openssl_aes-armv4.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = "openssl_aes-armv4.S"; sourceTree = "<group>"; };
+		22D2A83526F1F4010066D42E /* StopWatch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StopWatch.hpp; sourceTree = "<group>"; };
+		22D2A83726F1F4010066D42E /* uECC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uECC.h; sourceTree = "<group>"; };
+		22D2A83826F1F4010066D42E /* asm_avr_mult_square.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = asm_avr_mult_square.inc; sourceTree = "<group>"; };
+		22D2A83926F1F4010066D42E /* uECC_vli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uECC_vli.h; sourceTree = "<group>"; };
+		22D2A83A26F1F4010066D42E /* curve-specific.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = "curve-specific.inc"; sourceTree = "<group>"; };
+		22D2A83B26F1F4010066D42E /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		22D2A83C26F1F4010066D42E /* uECC.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = uECC.cpp; sourceTree = "<group>"; };
+		22D2A83D26F1F4010066D42E /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		22D2A83E26F1F4010066D42E /* asm_arm.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = asm_arm.inc; sourceTree = "<group>"; };
+		22D2A83F26F1F4010066D42E /* asm_arm_mult_square_umaal.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = asm_arm_mult_square_umaal.inc; sourceTree = "<group>"; };
+		22D2A84026F1F4010066D42E /* platform-specific.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = "platform-specific.inc"; sourceTree = "<group>"; };
+		22D2A84126F1F4010066D42E /* asm_arm_mult_square.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = asm_arm_mult_square.inc; sourceTree = "<group>"; };
+		22D2A84226F1F4010066D42E /* asm_avr.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = asm_avr.inc; sourceTree = "<group>"; };
+		22D398C52612FA2B008693BC /* libGlogCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGlogCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		22D398D52612FA66008693BC /* Glog_IO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Glog_IO.h; sourceTree = "<group>"; };
+		22D398D62612FA66008693BC /* ZlibCompress.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ZlibCompress.cpp; sourceTree = "<group>"; };
+		22D398D72612FA66008693BC /* ThreadLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadLock.h; sourceTree = "<group>"; };
+		22D398D82612FA66008693BC /* InternalLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InternalLog.h; sourceTree = "<group>"; };
+		22D398D92612FA66008693BC /* MessageQueue.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = MessageQueue.cpp; sourceTree = "<group>"; };
+		22D398DA2612FA66008693BC /* ThreadLock.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ThreadLock.cpp; sourceTree = "<group>"; };
+		22D398DB2612FA66008693BC /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
+		22D398DC2612FA66008693BC /* GlogPredef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlogPredef.h; sourceTree = "<group>"; };
+		22D398DD2612FA67008693BC /* Glog.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Glog.cpp; sourceTree = "<group>"; };
+		22D398DE2612FA67008693BC /* Compressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Compressor.h; sourceTree = "<group>"; };
+		22D398DF2612FA67008693BC /* GlogFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlogFile.h; sourceTree = "<group>"; };
+		22D398E02612FA67008693BC /* GlogReader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = GlogReader.cpp; sourceTree = "<group>"; };
+		22D398E12612FA67008693BC /* MessageQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageQueue.h; sourceTree = "<group>"; };
+		22D398E22612FA67008693BC /* GlogReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlogReader.h; sourceTree = "<group>"; };
+		22D398E32612FA67008693BC /* GlogBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlogBuffer.h; sourceTree = "<group>"; };
+		22D398E42612FA67008693BC /* utilities.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = utilities.cpp; sourceTree = "<group>"; };
+		22D398E52612FA67008693BC /* ZlibCompress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZlibCompress.h; sourceTree = "<group>"; };
+		22D398E62612FA67008693BC /* GlogFile.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = GlogFile.cpp; sourceTree = "<group>"; };
+		22D398E72612FA67008693BC /* InternalLog.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = InternalLog.cpp; sourceTree = "<group>"; };
+		22D398E82612FA67008693BC /* Glog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Glog.h; sourceTree = "<group>"; };
+		22D398E92612FA67008693BC /* ScopedLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScopedLock.h; sourceTree = "<group>"; };
+		22D398EA2612FA67008693BC /* GlogBuffer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = GlogBuffer.cpp; sourceTree = "<group>"; };
+		22D398EB2612FA67008693BC /* Glog_IO.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Glog_IO.cpp; sourceTree = "<group>"; };
+		22D3990626130000008693BC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		22D399092613000A008693BC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22D398C32612FA2B008693BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22D3990A2613000A008693BC /* Foundation.framework in Frameworks */,
+				22D3990726130000008693BC /* libz.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22D2A81226F1F37B0066D42E /* aes */ = {
+			isa = PBXGroup;
+			children = (
+				22D2A81326F1F37B0066D42E /* README */,
+				22D2A81426F1F37B0066D42E /* AESCrypt.h */,
+				22D2A81526F1F37B0066D42E /* AESCrypt.cpp */,
+			);
+			path = aes;
+			sourceTree = "<group>";
+		};
+		22D2A82226F1F4010066D42E /* openssl */ = {
+			isa = PBXGroup;
+			children = (
+				22D2A82326F1F4010066D42E /* openssl_md5_one.cpp */,
+				22D2A82426F1F4010066D42E /* openssl_cfb128.cpp */,
+				22D2A82526F1F4010066D42E /* openssl_md5_locl.h */,
+				22D2A82726F1F4010066D42E /* openssl_md32_common.h */,
+				22D2A82826F1F4010066D42E /* openssl_opensslconf.h */,
+				22D2A82A26F1F4010066D42E /* openssl_aes_core.cpp */,
+				22D2A82B26F1F4010066D42E /* openssl_md5.h */,
+				22D2A82C26F1F4010066D42E /* openssl_cbc128.cpp */,
+				22D2A82D26F1F4010066D42E /* openssl_aes_locl.h */,
+				22D2A82E26F1F4010066D42E /* README */,
+				22D2A82F26F1F4010066D42E /* openssl_aesv8-armx.S */,
+				22D2A83126F1F4010066D42E /* openssl_aes.h */,
+				22D2A83226F1F4010066D42E /* openssl_arm_arch.h */,
+				22D2A83326F1F4010066D42E /* openssl_md5_dgst.cpp */,
+				22D2A83426F1F4010066D42E /* openssl_aes-armv4.S */,
+			);
+			path = openssl;
+			sourceTree = "<group>";
+		};
+		22D2A83626F1F4010066D42E /* micro-ecc */ = {
+			isa = PBXGroup;
+			children = (
+				22D2A83726F1F4010066D42E /* uECC.h */,
+				22D2A83826F1F4010066D42E /* asm_avr_mult_square.inc */,
+				22D2A83926F1F4010066D42E /* uECC_vli.h */,
+				22D2A83A26F1F4010066D42E /* curve-specific.inc */,
+				22D2A83B26F1F4010066D42E /* types.h */,
+				22D2A83C26F1F4010066D42E /* uECC.cpp */,
+				22D2A83D26F1F4010066D42E /* README */,
+				22D2A83E26F1F4010066D42E /* asm_arm.inc */,
+				22D2A83F26F1F4010066D42E /* asm_arm_mult_square_umaal.inc */,
+				22D2A84026F1F4010066D42E /* platform-specific.inc */,
+				22D2A84126F1F4010066D42E /* asm_arm_mult_square.inc */,
+				22D2A84226F1F4010066D42E /* asm_avr.inc */,
+			);
+			path = "micro-ecc";
+			sourceTree = "<group>";
+		};
+		22D398BC2612FA2B008693BC = {
+			isa = PBXGroup;
+			children = (
+				22D2A81226F1F37B0066D42E /* aes */,
+				22D2A83626F1F4010066D42E /* micro-ecc */,
+				22D2A82226F1F4010066D42E /* openssl */,
+				22D2A83526F1F4010066D42E /* StopWatch.hpp */,
+				22D398DE2612FA67008693BC /* Compressor.h */,
+				22D398EB2612FA67008693BC /* Glog_IO.cpp */,
+				22D398D52612FA66008693BC /* Glog_IO.h */,
+				22D398DD2612FA67008693BC /* Glog.cpp */,
+				22D398E82612FA67008693BC /* Glog.h */,
+				22D398EA2612FA67008693BC /* GlogBuffer.cpp */,
+				22D398E32612FA67008693BC /* GlogBuffer.h */,
+				22D398E62612FA67008693BC /* GlogFile.cpp */,
+				22D398DF2612FA67008693BC /* GlogFile.h */,
+				22D398DC2612FA66008693BC /* GlogPredef.h */,
+				22D398E02612FA67008693BC /* GlogReader.cpp */,
+				22D398E22612FA67008693BC /* GlogReader.h */,
+				22D398E72612FA67008693BC /* InternalLog.cpp */,
+				22D398D82612FA66008693BC /* InternalLog.h */,
+				22D398D92612FA66008693BC /* MessageQueue.cpp */,
+				22D398E12612FA67008693BC /* MessageQueue.h */,
+				22D398E92612FA67008693BC /* ScopedLock.h */,
+				22D398DA2612FA66008693BC /* ThreadLock.cpp */,
+				22D398D72612FA66008693BC /* ThreadLock.h */,
+				22D398E42612FA67008693BC /* utilities.cpp */,
+				22D398DB2612FA66008693BC /* utilities.h */,
+				22D398D62612FA66008693BC /* ZlibCompress.cpp */,
+				22D398E52612FA67008693BC /* ZlibCompress.h */,
+				22D398C62612FA2B008693BC /* Products */,
+				22D399052612FFFF008693BC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		22D398C62612FA2B008693BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22D398C52612FA2B008693BC /* libGlogCore.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22D399052612FFFF008693BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22D399092613000A008693BC /* Foundation.framework */,
+				22D3990626130000008693BC /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		22D398C12612FA2B008693BC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22D398EC2612FA67008693BC /* Glog_IO.h in Headers */,
+				22D398FC2612FA67008693BC /* ZlibCompress.h in Headers */,
+				22D399002612FA67008693BC /* ScopedLock.h in Headers */,
+				22D2A84D26F1F4020066D42E /* openssl_aes_locl.h in Headers */,
+				22D2A85926F1F4020066D42E /* types.h in Headers */,
+				22D398F22612FA67008693BC /* utilities.h in Headers */,
+				22D398F92612FA67008693BC /* GlogReader.h in Headers */,
+				22D398F32612FA67008693BC /* GlogPredef.h in Headers */,
+				22D398F52612FA67008693BC /* Compressor.h in Headers */,
+				22D2A85026F1F4020066D42E /* openssl_aes.h in Headers */,
+				22D398EE2612FA67008693BC /* ThreadLock.h in Headers */,
+				22D2A85126F1F4020066D42E /* openssl_arm_arch.h in Headers */,
+				22D398EF2612FA67008693BC /* InternalLog.h in Headers */,
+				22D2A85426F1F4020066D42E /* StopWatch.hpp in Headers */,
+				22D398FA2612FA67008693BC /* GlogBuffer.h in Headers */,
+				22D398FF2612FA67008693BC /* Glog.h in Headers */,
+				22D2A85726F1F4020066D42E /* uECC_vli.h in Headers */,
+				22D2A85526F1F4020066D42E /* uECC.h in Headers */,
+				22D2A84826F1F4020066D42E /* openssl_opensslconf.h in Headers */,
+				22D2A81626F1F37B0066D42E /* AESCrypt.h in Headers */,
+				22D398F82612FA67008693BC /* MessageQueue.h in Headers */,
+				22D398F62612FA67008693BC /* GlogFile.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		22D398C42612FA2B008693BC /* GlogCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22D398D02612FA2B008693BC /* Build configuration list for PBXNativeTarget "GlogCore" */;
+			buildPhases = (
+				22D398C12612FA2B008693BC /* Headers */,
+				22D398C22612FA2B008693BC /* Sources */,
+				22D398C32612FA2B008693BC /* Frameworks */,
+				2205ABC026132BD300B03C47 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GlogCore;
+			productName = Core;
+			productReference = 22D398C52612FA2B008693BC /* libGlogCore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22D398BD2612FA2B008693BC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					22D398C42612FA2B008693BC = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 22D398C02612FA2B008693BC /* Build configuration list for PBXProject "Core" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 22D398BC2612FA2B008693BC;
+			productRefGroup = 22D398C62612FA2B008693BC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22D398C42612FA2B008693BC /* GlogCore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22D398C22612FA2B008693BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22D398FB2612FA67008693BC /* utilities.cpp in Sources */,
+				22D398F12612FA67008693BC /* ThreadLock.cpp in Sources */,
+				22D2A85326F1F4020066D42E /* openssl_aes-armv4.S in Sources */,
+				22D2A85B26F1F4020066D42E /* asm_arm.inc in Sources */,
+				22D2A85D26F1F4020066D42E /* platform-specific.inc in Sources */,
+				22D398ED2612FA67008693BC /* ZlibCompress.cpp in Sources */,
+				22D2A85626F1F4020066D42E /* asm_avr_mult_square.inc in Sources */,
+				22D2A81726F1F37B0066D42E /* AESCrypt.cpp in Sources */,
+				22D398F72612FA67008693BC /* GlogReader.cpp in Sources */,
+				22D2A85826F1F4020066D42E /* curve-specific.inc in Sources */,
+				22D2A84426F1F4020066D42E /* openssl_cfb128.cpp in Sources */,
+				22D2A85A26F1F4020066D42E /* uECC.cpp in Sources */,
+				22D2A85C26F1F4020066D42E /* asm_arm_mult_square_umaal.inc in Sources */,
+				22D398FD2612FA67008693BC /* GlogFile.cpp in Sources */,
+				22D2A84E26F1F4020066D42E /* openssl_aesv8-armx.S in Sources */,
+				22D2A84C26F1F4020066D42E /* openssl_cbc128.cpp in Sources */,
+				22D399012612FA67008693BC /* GlogBuffer.cpp in Sources */,
+				22D2A84A26F1F4020066D42E /* openssl_aes_core.cpp in Sources */,
+				22D2A85E26F1F4020066D42E /* asm_arm_mult_square.inc in Sources */,
+				22D399022612FA67008693BC /* Glog_IO.cpp in Sources */,
+				22D398F42612FA67008693BC /* Glog.cpp in Sources */,
+				22D398F02612FA67008693BC /* MessageQueue.cpp in Sources */,
+				22D2A85F26F1F4020066D42E /* asm_avr.inc in Sources */,
+				22D398FE2612FA67008693BC /* InternalLog.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		22D398CE2612FA2B008693BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		22D398CF2612FA2B008693BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		22D398D12612FA2B008693BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RL7M9EPLR4;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		22D398D22612FA2B008693BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RL7M9EPLR4;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22D398C02612FA2B008693BC /* Build configuration list for PBXProject "Core" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22D398CE2612FA2B008693BC /* Debug */,
+				22D398CF2612FA2B008693BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22D398D02612FA2B008693BC /* Build configuration list for PBXNativeTarget "GlogCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22D398D12612FA2B008693BC /* Debug */,
+				22D398D22612FA2B008693BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22D398BD2612FA2B008693BC /* Project object */;
+}

@@ -1,0 +1,635 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		7EF5DF1425FA175000B69A22 /* GlogCommon */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 7EF5DF1725FA175000B69A22 /* Build configuration list for PBXAggregateTarget "GlogCommon" */;
+			buildPhases = (
+				7EF5DF1B25FA175A00B69A22 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = GlogCommon;
+			productName = GlogCommon;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		22D2A91926F347FA0066D42E /* libGlogCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D2A8F826F343480066D42E /* libGlogCore.a */; };
+		22D2A92326F3482E0066D42E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF5D93025F23DFE00B69A22 /* libz.tbd */; };
+		7E7D511B2833AE0300BF9106 /* GlogReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E7D51192833AE0300BF9106 /* GlogReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7E7D511C2833AE0300BF9106 /* libGlogReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E7D511A2833AE0300BF9106 /* libGlogReader.mm */; };
+		7EF311D82830B8D400A62D6E /* GlogHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF311D72830B8D400A62D6E /* GlogHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EF311E72830BF9200A62D6E /* Glog.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF311E52830BF9200A62D6E /* Glog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EF311E82830BF9200A62D6E /* libGlog.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EF311E62830BF9200A62D6E /* libGlog.mm */; };
+		7EF311FC2830C0A100A62D6E /* GlogConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF311FA2830C0A100A62D6E /* GlogConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EF311FD2830C0A100A62D6E /* GlogConfig.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EF311FB2830C0A100A62D6E /* GlogConfig.mm */; };
+		7EF5D8ED25F23D8100B69A22 /* GlogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5D8EC25F23D8100B69A22 /* GlogTests.m */; };
+		A1BEA52928AA3A5D002EB5D5 /* GlogWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF311B52830B6AA00A62D6E /* GlogWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1BEA52A28AA3A63002EB5D5 /* GlogConfigManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF311B62830B6AA00A62D6E /* GlogConfigManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22D2A8F726F343480066D42E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22D2A8F326F343480066D42E /* Core.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 22D398C52612FA2B008693BC;
+			remoteInfo = GlogCore;
+		};
+		22D2A8FD26F343540066D42E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22D2A8F326F343480066D42E /* Core.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 22D398C42612FA2B008693BC;
+			remoteInfo = GlogCore;
+		};
+		7EF5D8E925F23D8000B69A22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EF5D8D525F23D8000B69A22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EF5D8DD25F23D8000B69A22;
+			remoteInfo = Glog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		22D2A8F326F343480066D42E /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = ../../Core/Core.xcodeproj; sourceTree = "<group>"; };
+		7E284506260C4268000BC369 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/lib/libc++.tbd"; sourceTree = DEVELOPER_DIR; };
+		7E7D51192833AE0300BF9106 /* GlogReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlogReader.h; sourceTree = "<group>"; };
+		7E7D511A2833AE0300BF9106 /* libGlogReader.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = libGlogReader.mm; sourceTree = "<group>"; };
+		7E801D4F28699DC60010FBE4 /* GlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E8A669A2833DF8100B3E4F3 /* Glog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Glog.xcodeproj; sourceTree = "<group>"; };
+		7E8A669D2833DFA200B3E4F3 /* Glog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Glog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF311B72830B6AA00A62D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EF311D72830B8D400A62D6E /* GlogHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlogHandler.h; sourceTree = "<group>"; };
+		7EF311E52830BF9200A62D6E /* Glog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Glog.h; sourceTree = "<group>"; };
+		7EF311E62830BF9200A62D6E /* libGlog.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = libGlog.mm; sourceTree = "<group>"; };
+		7EF311FA2830C0A100A62D6E /* GlogConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlogConfig.h; sourceTree = "<group>"; };
+		7EF311FB2830C0A100A62D6E /* GlogConfig.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GlogConfig.mm; sourceTree = "<group>"; };
+		7EF5D8EC25F23D8100B69A22 /* GlogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlogTests.m; sourceTree = "<group>"; };
+		7EF5D8EE25F23D8100B69A22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EF5D93025F23DFE00B69A22 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7EF5D8DB25F23D8000B69A22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22D2A92326F3482E0066D42E /* libz.tbd in Frameworks */,
+				22D2A91926F347FA0066D42E /* libGlogCore.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF5D8E425F23D8000B69A22 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22D2A8F426F343480066D42E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22D2A8F826F343480066D42E /* libGlogCore.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E8A669B2833DF8100B3E4F3 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7EF311B32830B6AA00A62D6E /* Glog */ = {
+			isa = PBXGroup;
+			children = (
+				7EF311B72830B6AA00A62D6E /* Info.plist */,
+				7EF311D72830B8D400A62D6E /* GlogHandler.h */,
+				7EF311E52830BF9200A62D6E /* Glog.h */,
+				7EF311E62830BF9200A62D6E /* libGlog.mm */,
+				7EF311FA2830C0A100A62D6E /* GlogConfig.h */,
+				7EF311FB2830C0A100A62D6E /* GlogConfig.mm */,
+				7E7D51192833AE0300BF9106 /* GlogReader.h */,
+				7E7D511A2833AE0300BF9106 /* libGlogReader.mm */,
+			);
+			path = Glog;
+			sourceTree = "<group>";
+		};
+		7EF5D8D425F23D8000B69A22 = {
+			isa = PBXGroup;
+			children = (
+				22D2A8F326F343480066D42E /* Core.xcodeproj */,
+				7EF311B32830B6AA00A62D6E /* Glog */,
+				7EF5D8EB25F23D8000B69A22 /* GlogTests */,
+				7EF5D92F25F23DFE00B69A22 /* Frameworks */,
+				7E8A669D2833DFA200B3E4F3 /* Glog.framework */,
+				7E801D4F28699DC60010FBE4 /* GlogTests.xctest */,
+			);
+			sourceTree = "<group>";
+		};
+		7EF5D8EB25F23D8000B69A22 /* GlogTests */ = {
+			isa = PBXGroup;
+			children = (
+				7EF5D8EC25F23D8100B69A22 /* GlogTests.m */,
+				7EF5D8EE25F23D8100B69A22 /* Info.plist */,
+			);
+			path = GlogTests;
+			sourceTree = "<group>";
+		};
+		7EF5D92F25F23DFE00B69A22 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E8A669A2833DF8100B3E4F3 /* Glog.xcodeproj */,
+				7E284506260C4268000BC369 /* libc++.tbd */,
+				7EF5D93025F23DFE00B69A22 /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		7EF5D8D925F23D8000B69A22 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EF311E72830BF9200A62D6E /* Glog.h in Headers */,
+				A1BEA52A28AA3A63002EB5D5 /* GlogConfigManager.h in Headers */,
+				7EF311FC2830C0A100A62D6E /* GlogConfig.h in Headers */,
+				7E7D511B2833AE0300BF9106 /* GlogReader.h in Headers */,
+				A1BEA52928AA3A5D002EB5D5 /* GlogWrapper.h in Headers */,
+				7EF311D82830B8D400A62D6E /* GlogHandler.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		7EF5D8DD25F23D8000B69A22 /* Glog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EF5D8F225F23D8100B69A22 /* Build configuration list for PBXNativeTarget "Glog" */;
+			buildPhases = (
+				7EF5D8D925F23D8000B69A22 /* Headers */,
+				7EF5D8DA25F23D8000B69A22 /* Sources */,
+				7EF5D8DB25F23D8000B69A22 /* Frameworks */,
+				7EF5D8DC25F23D8000B69A22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22D2A8FE26F343540066D42E /* PBXTargetDependency */,
+			);
+			name = Glog;
+			productName = Glog;
+			productReference = 7E8A669D2833DFA200B3E4F3 /* Glog.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7EF5D8E625F23D8000B69A22 /* GlogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EF5D8F525F23D8100B69A22 /* Build configuration list for PBXNativeTarget "GlogTests" */;
+			buildPhases = (
+				7EF5D8E325F23D8000B69A22 /* Sources */,
+				7EF5D8E425F23D8000B69A22 /* Frameworks */,
+				7EF5D8E525F23D8000B69A22 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7EF5D8EA25F23D8000B69A22 /* PBXTargetDependency */,
+			);
+			name = GlogTests;
+			productName = GlogTests;
+			productReference = 7E801D4F28699DC60010FBE4 /* GlogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7EF5D8D525F23D8000B69A22 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					7EF5D8DD25F23D8000B69A22 = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
+					7EF5D8E625F23D8000B69A22 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					7EF5DF1425FA175000B69A22 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 7EF5D8D825F23D8000B69A22 /* Build configuration list for PBXProject "Glog" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7EF5D8D425F23D8000B69A22;
+			productRefGroup = 7EF5D8D425F23D8000B69A22;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 22D2A8F426F343480066D42E /* Products */;
+					ProjectRef = 22D2A8F326F343480066D42E /* Core.xcodeproj */;
+				},
+				{
+					ProductGroup = 7E8A669B2833DF8100B3E4F3 /* Products */;
+					ProjectRef = 7E8A669A2833DF8100B3E4F3 /* Glog.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				7EF5D8DD25F23D8000B69A22 /* Glog */,
+				7EF5D8E625F23D8000B69A22 /* GlogTests */,
+				7EF5DF1425FA175000B69A22 /* GlogCommon */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		22D2A8F826F343480066D42E /* libGlogCore.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGlogCore.a;
+			remoteRef = 22D2A8F726F343480066D42E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7EF5D8DC25F23D8000B69A22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF5D8E525F23D8000B69A22 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7EF5DF1B25FA175A00B69A22 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TARGET_NAME=${PROJECT_NAME}\nOUTPUT_DIR=${SRCROOT}/Products/${TARGET_NAME}.framework\nDEVICE_DIR=${BUILD_ROOT}/${CONFIGURATION}-iphoneos/${TARGET_NAME}.framework\nSIMULATOR_DIR=${BUILD_ROOT}/${CONFIGURATION}-iphonesimulator/${TARGET_NAME}.framework\n\nif [ -d \"${OUTPUT_DIR}\" ]\nthen\nrm -rf \"${OUTPUT_DIR}\"\nfi\n\nmkdir -p \"${OUTPUT_DIR}\"\ncp -R \"${DEVICE_DIR}/\" \"${OUTPUT_DIR}/\"\n\nlipo -create \"${DEVICE_DIR}/${TARGET_NAME}\" \"${SIMULATOR_DIR}/${TARGET_NAME}\" -output \"${OUTPUT_DIR}/${TARGET_NAME}\"\n\nopen \"${SRCROOT}/Products\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7EF5D8DA25F23D8000B69A22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E7D511C2833AE0300BF9106 /* libGlogReader.mm in Sources */,
+				7EF311FD2830C0A100A62D6E /* GlogConfig.mm in Sources */,
+				7EF311E82830BF9200A62D6E /* libGlog.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EF5D8E325F23D8000B69A22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7EF5D8ED25F23D8100B69A22 /* GlogTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		22D2A8FE26F343540066D42E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GlogCore;
+			targetProxy = 22D2A8FD26F343540066D42E /* PBXContainerItemProxy */;
+		};
+		7EF5D8EA25F23D8000B69A22 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7EF5D8DD25F23D8000B69A22 /* Glog */;
+			targetProxy = 7EF5D8E925F23D8000B69A22 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7EF5D8F025F23D8100B69A22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EF5D8F125F23D8100B69A22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7EF5D8F325F23D8100B69A22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QT88655LT4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				INFOPLIST_FILE = Glog/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = mh_dylib;
+				MARKETING_VERSION = 3.0.0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-x",
+					"objective-c++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.huolala.user.Glog;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7EF5D8F425F23D8100B69A22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QT88655LT4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				INFOPLIST_FILE = Glog/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = mh_dylib;
+				MARKETING_VERSION = 3.0.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-x",
+					"objective-c++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.huolala.user.Glog;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7EF5D8F625F23D8100B69A22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P44B3LZM24;
+				INFOPLIST_FILE = GlogTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.huolala.user.GlogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7EF5D8F725F23D8100B69A22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P44B3LZM24;
+				INFOPLIST_FILE = GlogTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.huolala.user.GlogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7EF5DF1525FA175000B69A22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P44B3LZM24;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7EF5DF1625FA175000B69A22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P44B3LZM24;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7EF5D8D825F23D8000B69A22 /* Build configuration list for PBXProject "Glog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF5D8F025F23D8100B69A22 /* Debug */,
+				7EF5D8F125F23D8100B69A22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EF5D8F225F23D8100B69A22 /* Build configuration list for PBXNativeTarget "Glog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF5D8F325F23D8100B69A22 /* Debug */,
+				7EF5D8F425F23D8100B69A22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EF5D8F525F23D8100B69A22 /* Build configuration list for PBXNativeTarget "GlogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF5D8F625F23D8100B69A22 /* Debug */,
+				7EF5D8F725F23D8100B69A22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EF5DF1725FA175000B69A22 /* Build configuration list for PBXAggregateTarget "GlogCommon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF5DF1525FA175000B69A22 /* Debug */,
+				7EF5DF1625FA175000B69A22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7EF5D8D525F23D8000B69A22 /* Project object */;
+}

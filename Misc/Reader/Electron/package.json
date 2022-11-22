@@ -1,0 +1,58 @@
+{
+  "name": "glog-reader",
+  "version": "1.0.0",
+  "description": "Glog file read with electron js",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "keywords": [],
+  "author": "issac.zeng",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.56",
+    "@electron-forge/maker-deb": "^6.0.0-beta.56",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.56",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.56",
+    "@electron-forge/maker-zip": "^6.0.0-beta.56",
+    "electron": "^12.0.9"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "dateformat": "^4.5.1",
+    "electron-log": "^4.3.5",
+    "electron-progressbar": "^2.0.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "elliptic": "^6.5.4",
+    "google-protobuf": "^3.17.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "glog_reader"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}

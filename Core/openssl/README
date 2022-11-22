@@ -1,0 +1,21 @@
+openssl md5, AES lib
+
+URL: https://github.com/Tencent/MMKV/
+Version: v1.2.7
+
+copy files:
+Core/aes/openssl/openssl_opensslconf.h
+
+Core/aes/openssl/openssl_aes.h          // remove macro 'MMKV_DISABLE_CRYPT'
+Core/aes/openssl/openssl_aes-armv4.S    // remove macro 'MMKV_DISABLE_CRYPT'
+Core/aes/openssl/openssl_aes_core.cpp   // remove macro 'MMKV_DISABLE_CRYPT'
+Core/aes/openssl/openssl_aes_locl.h
+Core/aes/openssl/openssl_aesv8-armx.S   // remove macro 'MMKV_DISABLE_CRYPT'
+Core/aes/openssl/openssl_arm_arch.h
+Core/aes/openssl/openssl_cfb128.cpp     // remove macro 'MMKV_DISABLE_CRYPT'
+
+
+URL: https://github.com/openssl/openssl
+Version: openssl-3.0.0-beta2
+
+cp crypto/modes/cbc128.c openssl/openssl_cbc128.cpp     // remove macro 'OPENSSL_SMALL_FOOTPRINT', 'STRICT_ALIGNMENT'

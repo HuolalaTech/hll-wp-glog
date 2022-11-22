@@ -1,0 +1,247 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        externalNativeBuild {
+            cmake {
+                abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            externalNativeBuild {
+                cmake {
+                    cppFlags "-fvisibility=hidden", "-funwind-tables", "-fasynchronous-unwind-tables"
+                }
+            }
+        }
+        debug {
+            externalNativeBuild {
+                cmake {
+                    cppFlags += '-DDEBUG'
+                }
+            }
+            jniDebuggable true
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+            version "3.8.0+"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    flavorDimensions "stlMode"
+    productFlavors {
+        cppStatic {
+            dimension "stlMode"
+            externalNativeBuild {
+                cmake {
+                    arguments = ["-DANDROID_STL=c++_static"]
+                }
+            }
+        }
+        cppShared {
+            dimension "stlMode"
+            externalNativeBuild {
+                cmake {
+                    arguments = ["-DANDROID_STL=c++_shared"]
+                }
+            }
+        }
+    }
+
+    packagingOptions {
+        doNotStrip "*/arm64-v8a/*.so"
+        doNotStrip "*/armeabi-v7a/*.so"
+        doNotStrip "*/x86/*.so"
+        doNotStrip "*/x86_64/*.so"
+    }
+}
+
+dependencies {
+
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    androidTestImplementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
+
+ext {
+    VERSION_NAME = glog_version
+    GROUP = 'cn.huolala.glog.android'
+
+    POM_DESCRIPTION = 'Glog android sdk'
+    POM_NAME = 'Glog android sdk'
+    POM_ARTIFACT_ID = 'glog-android'
+    POM_PACKAGING = 'aar'
+}
+
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+afterEvaluate {
+    publishing {
+        components.each { component ->
+            if (component.name.toLowerCase().contains("release")) {
+                publications.create(component.name, MavenPublication) { publication ->
+                    from components[component.name]
+
+                    groupId = project.ext.GROUP
+                    artifactId = project.ext.POM_ARTIFACT_ID + (component.name.toLowerCase().contains('static') ? '-static' : '-shared')
+                    version = project.ext.VERSION_NAME
+
+                    publication.pom { pom ->
+                        pom.name = POM_NAME
+                        pom.description = POM_DESCRIPTION
+                        pom.url = POM_URL
+                        pom.licenses { licenses ->
+                            licenses.license { license ->
+                                license.name = POM_LICENCE_NAME
+                                license.url = POM_LICENCE_URL
+                            }
+                        }
+                        pom.developers { develops ->
+                            develops.developer { develop ->
+                                develop.id = POM_DEVELOPER_ID
+                                develop.name = POM_DEVELOPER_NAME
+                                develop.email = POM_DEVELOPER_EMAIL
+                            }
+                        }
+                        pom.scm { scm ->
+                            scm.connection = POM_SCM_CONNECTION
+                            scm.developerConnection = POM_SCM_DEV_CONNECTION
+                            scm.url = POM_SCM_URL
+                        }
+                        pom.packaging = POM_PACKAGING
+                    }
+                }
+            }
+        }
+        repositories {
+            maven {
+                name = 'sonatype'
+                url = RELEASE_REPOSITORY_URL
+                credentials {
+                    password = OSSRH_PASSWORD
+                    username = OSSRH_USER_NAME
+                }
+            }
+        }
+    }
+
+    signing {
+        sign publishing.publications
+    }
+
+    android.libraryVariants.all { variant ->
+        if (variant.buildType.name == "debug") {
+            return
+        }
+
+        def artifactIdSuffix = variant.flavorName.toLowerCase().contains('static') ? '-static' : '-shared'
+
+        def sources = task("${variant.name}SourcesJar", type: Jar) {
+            classifier = 'sources'
+            from android.sourceSets.main.java.source
+        }
+
+        def javadoc = task("${variant.name}Javadoc", type: Javadoc) {
+            source = variant.javaCompile.source
+            options.encoding = 'utf-8'
+            destinationDir = file("${buildDir}/docs/javadoc${artifactIdSuffix}")
+            def androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+            classpath += files(androidJar)
+            classpath += files(variant.javaCompileProvider.get().classpath.files.join(File.pathSeparator))
+            exclude '**/BuildConfig.java'
+            exclude '**/R.java'
+            failOnError false
+        }
+
+        def javadocJar = task("${variant.name}JavadocJar", type: Jar, dependsOn: javadoc) {
+            classifier = 'javadoc'
+            from javadoc.destinationDir
+        }
+
+        def jniSymbolsJar = task("${variant.name}SymbolJar", type: Jar, dependsOn: 'build') {
+            classifier = "so-symbols"
+            boolean hasNativeBuildTask = false
+            tasks.each { task ->
+                if (task.getName().startsWith("externalNativeBuild")) {
+                    hasNativeBuildTask = true
+                }
+            }
+
+            if (!hasNativeBuildTask) {
+                return
+            }
+
+            variant.productFlavors.each { flavor ->
+                from file("build/intermediates/cmake/${flavor.name}Release/obj/")
+            }
+        }
+
+        def publication = publishing.publications.findByName(variant.name)
+        publication.artifact sources
+        publication.artifact javadocJar
+        publication.artifact jniSymbolsJar
+    }
+
+    task publishStatic(group: 'upload', dependsOn: 'publishCppStaticReleasePublicationToSonatypeRepository') {
+        doLast {
+            println "### Published static artifact:\'${GROUP}:${POM_ARTIFACT_ID}:${VERSION_NAME}\' to maven"
+        }
+    }
+
+    task publishShared(group: 'upload', dependsOn: 'publishCppSharedReleasePublicationToSonatypeRepository') {
+        doLast {
+            println "### Published shared artifact:\'${GROUP}:${POM_ARTIFACT_ID}:${VERSION_NAME}\' to maven"
+        }
+    }
+
+    task publishStaticToMvnLocal(group: 'upload', dependsOn: 'publishCppStaticReleasePublicationToMavenLocal') {
+        doLast {
+            println "### Published static artifact:\'${GROUP}:${POM_ARTIFACT_ID}:${VERSION_NAME}\' to mavenlocal"
+        }
+    }
+
+    task publishSharedToMvnLocal(group: 'upload', dependsOn: 'publishCppSharedReleasePublicationToMavenLocal') {
+        doLast {
+            println "### Published shared artifact:\'${GROUP}:${POM_ARTIFACT_ID}:${VERSION_NAME}\' to mavenlocal"
+        }
+    }
+
+    task publishAll(group: 'upload', dependsOn: ['publishStatic', 'publishShared']) {
+
+    }
+
+    task publishAllToMvnLocal(group: 'upload', dependsOn: ['publishStaticToMvnLocal', 'publishSharedToMvnLocal']) {
+
+    }
+}

@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">GlogSample</string>
+    <string name="slogan_txt">Glog 是货拉拉移动端监控系统中的日志存储组件, \nGlog 意即 General log - 通用日志。</string>
+    <string-array name="logger_names">
+        <item>Glog</item>
+        <item>Xlog</item>
+        <item>Logan</item>
+    </string-array>
+    <string-array name="quantity_types">
+        <item>写入1万条日志</item>
+        <item>写入10万条日志</item>
+    </string-array>
+</resources>

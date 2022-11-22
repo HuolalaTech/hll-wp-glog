@@ -1,0 +1,3 @@
+include ':glog'
+include ':app'
+rootProject.name = "glog-android"

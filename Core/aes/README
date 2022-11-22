@@ -1,0 +1,17 @@
+openssl AES CFB 128 lib
+
+URL: https://github.com/Tencent/MMKV/
+Version: v1.2.7
+
+copy files:
+Core/aes/AESCrypt.h
+Core/aes/AESCrypt.cpp
+
+changed:
+1. rename namespace 'mmkv' -> 'glog'
+2. remove macro 'MMKV_DISABLE_CRYPT'
+3. remove 'MMKV_ASSERT'
+4. make `AESCrypt.m_number` public
+5. remove `AESCrypt::testAESCrypt`, `AESCrypt::Rollback_cfb_decrypt`, `AESCrypt::statusBeforeDecrypt`
+6. add one-time encrypt functions
+7. use microseconds since the epoch as random seed

@@ -1,0 +1,16 @@
+ECDH lib
+
+URL: https://github.com/kmackay/micro-ecc
+Version:24c60e2
+
+cp asm_arm.inc micro-ecc/asm_arm.inc
+cp asm_arm_mult_square.inc micro-ecc/asm_arm_mult_square.inc
+cp asm_arm_mult_square_umaal.inc micro-ecc/asm_arm_mult_square_umaal.inc
+cp asm_avr.inc micro-ecc/asm_avr.inc
+cp asm_avr_mult_square.inc micro-ecc/asm_avr_mult_square.inc
+cp curve-specific.inc micro-ecc/curve-specific.inc
+cp platform-specific.inc micro-ecc/platform-specific.inc
+cp types.h micro-ecc/types.h
+cp uECC.c micro-ecc/uECC.cpp
+cp uECC.h micro-ecc/uECC.h
+cp uECC_vli.h micro-ecc/uECC_vli.h

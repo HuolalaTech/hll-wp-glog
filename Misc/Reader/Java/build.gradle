@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.squareup.wire:wire-gradle-plugin:3.5.0'
+    }
+}
+plugins {
+    id 'java'
+}
+
+group 'glog.reader.java'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'com.squareup.wire'
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation "com.squareup.wire:wire-runtime:3.5.0"
+    implementation "com.jcraft:jzlib:1.1.3"
+}
+
+test {
+    useJUnitPlatform()
+}

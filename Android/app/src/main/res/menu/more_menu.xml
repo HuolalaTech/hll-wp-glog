@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/cleanup"
+        android:title="删除日志文件" />
+    <item
+        android:id="@+id/generate_data"
+        android:title="生成测试数据" />
+</menu>

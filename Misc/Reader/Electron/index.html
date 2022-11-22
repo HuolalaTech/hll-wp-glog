@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Glog Reader</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+</head>
+
+<body style="background: white;">
+    <h1>Glog Reader Electron</h1>
+    <div>
+        <input type="radio" id="protobuf" name="format" value="protobuf" checked>
+        <label for="protobuf">Protobuf</label>
+        <input type="radio" id="plain" name="format" value="plain">
+        <label for="plain">Plain Text</label>
+    </div>
+    <p>Drag your file here</p>
+    <div style="border:2px solid black;border-radius:3px;padding:5px;margin: 5px;display:inline-block;background:url(./iconForDragAndDrop.png) no-repeat center;height:400px;width:90%;"
+        id="inputBox"></div>
+
+    <script src="renderer.js"></script>
+</body>
+
+</html>
