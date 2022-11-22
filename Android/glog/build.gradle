@@ -149,8 +149,8 @@ afterEvaluate {
                 name = 'sonatype'
                 url = RELEASE_REPOSITORY_URL
                 credentials {
-                    password = OSSRH_PASSWORD
-                    username = OSSRH_USER_NAME
+                    password = project.hasProperty('OSSRH_PASSWORD') ? OSSRH_PASSWORD : ""
+                    username = project.hasProperty('OSSRH_USER_NAME') ? OSSRH_USER_NAME : ""
                 }
             }
         }

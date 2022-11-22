@@ -7,7 +7,8 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/HuolalaTech/Glog/pulls) 
 [![Multi Platform](https://img.shields.io/badge/platform-android%20%7C%20ios-lightgrey)](https://github.com/HuolalaTech/Glog/wiki)
 
-> [中文文档](https://github.com/huolalatech/glog/blob/master/README-zh.md)
+> [中文文档](https://github.com/huolalatech/hll-wp-glog/blob/master/README-zh.md) | 
+> [Introduction](https://juejin.cn/post/7168662263337861133/)
 
 ---
 
@@ -62,9 +63,20 @@ Technical implementation
 ### Android
 
 #### IMPORT
+The latest release is available on [Maven Central](https://search.maven.org/artifact/cn.huolala.glog.android/glog-android-static/1.0.0/aar).
+
+```groovy
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+```
+
 ```groovy
 dependencies {
-    implementation "glog.android:glog-android-static:$glog_version"
+    implementation "cn.huolala.glog.android:glog-android-static:1.0.0"
+    // implementation "cn.huolala.glog.android:glog-android-shared:1.0.0"
 }
 ```
 

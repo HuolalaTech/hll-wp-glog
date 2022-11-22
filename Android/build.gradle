@@ -24,19 +24,8 @@ allprojects {
         jcenter()
         mavenCentral()
     }
-
-    nexusAuth().with { auth ->
-        ext.NEXUS_USERNAME = auth[0]
-        ext.NEXUS_PASSWORD = auth[1]
-    }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-def nexusAuth() {
-    Properties properties = new Properties()
-    rootProject.file('local.properties').withDataInputStream { properties.load(it) }
-    return [properties.getProperty('nexusUsername'), properties.getProperty('nexusPassword')]
 }
