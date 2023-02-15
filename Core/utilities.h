@@ -76,5 +76,7 @@ int char2int(char input);
 bool str2Hex(const string &s, uint8_t *data);
 
 int readSpecifySize(int fd, void *buf, size_t size);
+
+bool closeFile(int fd, const char *filepath = nullptr);
 } // namespace glog
 #endif //CORE__UTILITIES_H_

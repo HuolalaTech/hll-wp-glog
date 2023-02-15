@@ -232,4 +232,15 @@ int readSpecifySize(int fd, void *buf, size_t size) {
     return static_cast<int>(bytes);
 }
 
+bool closeFile(int fd, const char *filepath) {
+    if (fd < 0) {
+        return false;
+    }
+    if (::close(fd) != 0) {
+        InternalError("fail to close [%s], %s", filepath ? filepath : "Unknown", strerror(errno));
+        return false;
+    }
+    return true;
+}
+
 } // namespace glog
