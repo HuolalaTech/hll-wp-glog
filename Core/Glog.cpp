@@ -419,6 +419,7 @@ bool Glog::appendLogFile(uint8_t &maxRecursionDepth, time_t epochSeconds) {
             if (--maxRecursionDepth <= 0) {
                 InternalError("appendLogFile() reach recursion upper limit");
                 m_cacheFile->closeFile();
+                closeFile(fd, filepath.c_str());
                 return false;
             }
             return appendLogFile(maxRecursionDepth, epochSeconds);
@@ -450,6 +451,7 @@ bool Glog::appendLogFile(uint8_t &maxRecursionDepth, time_t epochSeconds) {
         InternalError("fail to truncate [%s] to size %zu, %s", filepath.c_str(), mmapOffset + mmapSize,
                       ::strerror(errno));
         m_cacheFile->closeFile();
+        closeFile(fd, filepath.c_str());
         return false;
     }
 
@@ -457,6 +459,7 @@ bool Glog::appendLogFile(uint8_t &maxRecursionDepth, time_t epochSeconds) {
         InternalError("fail to zeroFile [%s] to size %zu, %s", filepath.c_str(), mmapOffset + mmapSize,
                       strerror(errno));
         m_cacheFile->closeFile();
+        closeFile(fd, filepath.c_str());
         return false;
     }
 
@@ -465,6 +468,7 @@ bool Glog::appendLogFile(uint8_t &maxRecursionDepth, time_t epochSeconds) {
     if (mmapPtr == MAP_FAILED) {
         InternalError("fail to mmap [%s], %s", filepath.c_str(), strerror(errno));
         m_cacheFile->closeFile();
+        closeFile(fd, filepath.c_str());
         return false;
     }
 
@@ -473,6 +477,7 @@ bool Glog::appendLogFile(uint8_t &maxRecursionDepth, time_t epochSeconds) {
     if (src == nullptr || src == MAP_FAILED) {
         InternalError("fail to get cache file [%s] mmap ptr", filepath.c_str());
         m_cacheFile->closeFile();
+        closeFile(fd, filepath.c_str());
         return false;
     }
     memcpy((uint8_t *) mmapPtr + dstOffset, src + headerSize, copySize);
@@ -493,6 +498,7 @@ bool Glog::appendLogFile(uint8_t &maxRecursionDepth, time_t epochSeconds) {
         InternalError("fail to truncate [%s] to size %zu, %s", filepath.c_str(), fileSize + copySize,
                       ::strerror(errno));
         m_cacheFile->closeFile();
+        closeFile(fd, filepath.c_str());
         return false;
     }
 
@@ -502,8 +508,11 @@ bool Glog::appendLogFile(uint8_t &maxRecursionDepth, time_t epochSeconds) {
     //    m_cacheFile->resetInternalState();
 
     m_cacheFile->closeFile();
+    closeFile(fd, filepath.c_str());
     if (::remove(m_cacheFile->getPath().c_str()) < 0) {
         InternalError("fail to remove file [%s] %s", m_cacheFile->getPath().c_str(), ::strerror(errno));
+        m_cacheFile->closeFile();
+        closeFile(fd, filepath.c_str());
         return false;
     } else {
         InternalDebug("remove file [%s]", m_cacheFile->getPath().c_str());
