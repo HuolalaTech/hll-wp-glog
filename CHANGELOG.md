@@ -1,14 +1,17 @@
 Glog Change log
 
 ------
-## Version 1.x.x
 
-* 初始版本，仅支持全量归档
+## Version 1.0.1
 
-## Version 2.x.x
+_2023-02-15_
 
-* 添加增量归档功能
+* Fix(c++): close fd while flushing in incremental mode
 
-## Version 3.x.x
 
-* 添加日志加密功能
+
+## Version 1.0.0
+
+_2022-11-23_
+
+* First stable version
