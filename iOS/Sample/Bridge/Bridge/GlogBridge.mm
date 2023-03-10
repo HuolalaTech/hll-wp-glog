@@ -64,7 +64,7 @@ static recursive_mutex *g_instanceMutex;
             .m_encryptMode = encrypt ? glog::format::GlogEncryptMode::AES : glog::format::GlogEncryptMode::None,
             .m_serverPublicKey = encrypt ? &pubKey : nullptr
         };
-        m_glog = glog::Glog::instanceWithProto(config);
+        m_glog = glog::Glog::maybeCreateWithConfig(config);
     }
     return self;
 }
