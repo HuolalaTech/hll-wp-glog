@@ -12,11 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GlogConfig : NSObject
 
-+ (nullable instancetype) defaultConfig;
+@property(nonatomic) NSString *protoName;
 
-@property(nullable, nonatomic, strong) NSString *glogName;
-
-@property(nullable, nonatomic, strong) NSString *rootDirectory;
+@property(nonatomic) NSString *rootDirectory;
 
 @property(nonatomic, assign) bool incrementalArchive;
 
@@ -30,9 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic) GlogEncryptMode encryptMode;
 
-@property(nullable, nonatomic, strong) NSString *serverPublicKey;
+@property(nonatomic) NSString *serverPublicKey;
 
-@property(nonatomic) GlogInternalLogLevel logLevel;
+- (instancetype)initWithProtoName:(NSString *)protoName;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 

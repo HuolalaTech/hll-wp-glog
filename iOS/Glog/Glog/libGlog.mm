@@ -13,14 +13,13 @@
 #import <GlogCore/InternalLog.h>
 #import <GlogCore/GlogReader.h>
 
+static BOOL g_initialized = NO;
+static NSMutableDictionary *g_instanceDic = nil;
+static recursive_mutex *g_instanceMutex;
 
 @interface Glog()
 
-@property(nonatomic) glog::Glog *glog;
-
-@property(nonatomic, readwrite, strong) GlogConfig *config;
-
-@property(nonatomic) glog::GlogReader *reader;
+@property(nonatomic) NSString *m_protoName;
 
 @end
 
@@ -28,138 +27,108 @@
 
 #pragma mark ------------------- initialize -------------------
 
-+ (instancetype)defaultGlog{
-    return [self initialize:[GlogConfig defaultConfig]];
++ (void)initialize:(GlogInternalLogLevel)level {
+    if (g_initialized) {
+        return;
+    }
+    glog::Glog::initialize((glog::InternalLogLevel) level);
+
+    g_instanceMutex = new recursive_mutex();
+    g_instanceDic = [[NSMutableDictionary alloc] init];
+    g_initialized = YES;
 }
 
-+ (nullable instancetype)initialize:(GlogConfig *)config{
-    Glog *glog = [[Glog alloc]initWith:config];
-    return glog;
-}
++ (instancetype)glogWithConfig:(GlogConfig *)config {
+    assert(g_initialized);
+    std::unique_lock<std::recursive_mutex> lock(*g_instanceMutex);
 
-+ (nullable instancetype)initializeGlog:(nullable NSString *)glogName{
-    GlogConfig *config = [GlogConfig defaultConfig];
-    config.glogName = glogName;
-    return [self initialize:config];
-}
-
-+ (nullable instancetype)initializeGlog:(nullable NSString *)glogName rootDir:(nullable NSString *)rootDir{
-    GlogConfig *config = [GlogConfig defaultConfig];
-    config.glogName = glogName;
-    config.rootDirectory = rootDir;
-    return [self initialize:config];
+    Glog *gl = [g_instanceDic objectForKey:config.protoName];
+    if (gl == nil) {
+        gl = [[Glog alloc] initWithConfig:config];
+        if (![gl m_glog]) {
+            return nil;
+        }
+        [g_instanceDic setObject:gl forKey:config.protoName];
+    }
+    return gl;
 }
 
 #pragma mark ------------------- init -------------------
 
-- (instancetype)initWith:(GlogConfig *)glogConfig
-{
-    self = [super init];
-    if (self) {
-        self.glog = [self glogInstanceWithConfig:glogConfig];
-        self.config = glogConfig;
+- (instancetype)initWithConfig:(GlogConfig *)config {
+    if (self = [super init]) {
+        std::string serverPubKey = config.serverPublicKey ? std::string([config.serverPublicKey UTF8String]) : "";
+        glog::GlogConfig cfg {
+            .m_protoName = [config.protoName UTF8String],
+            .m_rootDirectory = [config.rootDirectory UTF8String],
+            .m_incrementalArchive = config.incrementalArchive,
+            .m_async = config.async,
+            .m_expireSeconds = config.expireSeconds,
+            .m_totalArchiveSizeLimit = config.totalArchiveSizeLimit,
+            .m_compressMode = (glog::format::GlogCompressMode) config.compressMode,
+            .m_encryptMode = (glog::format::GlogEncryptMode) config.encryptMode,
+            .m_serverPublicKey = &serverPubKey
+        };
+        
+        self.m_glog = glog::Glog::maybeCreateWithConfig(cfg);
     }
     return self;
 }
 
-- (glog::Glog *)glogInstanceWithConfig:(GlogConfig *)config{
-    glog::Glog::initialize((glog::InternalLogLevel)config.logLevel);
-    NSString *rootDic = [config.rootDirectory stringByAppendingPathComponent:config.glogName];
-    glog::GlogConfig config_struct{
-        .m_protoName = [config.glogName UTF8String],
-        .m_rootDirectory = [rootDic UTF8String],
-        .m_incrementalArchive = config.incrementalArchive,
-        .m_async = config.async,
-        .m_expireSeconds = config.expireSeconds,
-        .m_totalArchiveSizeLimit = config.totalArchiveSizeLimit,
-        .m_compressMode = (glog::format::GlogCompressMode)config.compressMode,
-        .m_encryptMode = (glog::format::GlogEncryptMode)config.encryptMode,
-        .m_serverPublicKey = nullptr
-    };
-    return glog::Glog::maybeCreateWithConfig(config_struct);
-}
-
 #pragma mark ------------------- glog write -------------------
 
-- (bool)writeString:(NSString *)dataString{
-    NSData *data =[dataString dataUsingEncoding:NSUTF8StringEncoding];
+- (bool)write:(NSData *)data {
     if (!data) {
-        NSLog(@"write error:%@",dataString);
         return NO;
     }
-    return [self write:data];
-}
-
-- (bool)writeDictionary:(NSDictionary *)dataDictionary{
-    NSError *error;
-    NSData *data= [NSJSONSerialization dataWithJSONObject:dataDictionary options:NSJSONWritingPrettyPrinted error:&error];
-    if (error || !data) {
-        NSLog(@"write error:%@",error);
-        return NO;
-    }
-    return [self write:data];
-}
-
-- (bool)writeData:(NSData *)data{
-    if (!data) {
-        NSLog(@"write error:%@",data);
-        return NO;
-    }
-    return [self write:data];
-}
-
-- (bool)write:(NSData *)data{
-    if (!data) {
-        NSLog(@"data is empty");
-        return NO;
-    }
-    glog::GlogBuffer buffer((void *)[data bytes], data.length,true);
-    return self.glog->write(buffer);
+    glog::GlogBuffer buffer((void *) [data bytes], data.length, true);
+    return ((glog::Glog *)self.m_glog)->write(buffer);
 }
 
 #pragma mark ------------------- glog read -------------------
 
-- (NSArray *)readArchiveFile:(NSString *)archiveFile{
+- (NSArray *)readArchiveFile:(NSString *)archiveFile key:(NSString *)key {
     @autoreleasepool {
         if ([Glog isBlankString:archiveFile]) {
-            NSLog(@"The file cannot be empty");
+            NSLog(@"archive file path cannot be empty");
             return [NSArray new];
         }
-        glog::GlogReader *reader = self.glog->openReader([archiveFile UTF8String]);
+        std::string privKey = key ? string{[key UTF8String]} : "";
+        glog::GlogReader *reader = ((glog::Glog *)self.m_glog)->openReader([archiveFile UTF8String], &privKey);
         NSInteger length = 0;
-        glog::GlogBuffer outBuf(16 * 1024);
+        glog::GlogBuffer outBuf(glog::SINGLE_LOG_CONTENT_MAX_LENGTH);
         NSMutableArray *dataArr = [NSMutableArray new];
         do {
             length = reader->read(outBuf);
-            if (length==0) {
+            if (length == 0) {
                 continue;
-            }else if (length < 0){
+            } else if (length < 0) {
                 break;
             }
             NSData *data = [NSData dataWithBytes:outBuf.getPtr() length:length];
             [dataArr addObject:data];
-        } while (length >= 0);
-        self.glog->closeReader(reader);
+        } while (true);
+        ((glog::Glog *)self.m_glog)->closeReader(reader);
         return dataArr;
     }
 }
+
 - (GlogReader *)openReader:(NSString *)archiveFile{
-    GlogReader *reader = [GlogReader initialize:self.config.glogName archiveFile:archiveFile];
-    return reader;
-}
-- (void)closeReader:(GlogReader *)reader{
-    [reader closeReader:self.config.glogName];
+    return [self openReader:archiveFile key:@""];
 }
 
+- (GlogReader *)openReader:(NSString *)archiveFile key:(NSString *)key {
+    return [[GlogReader alloc] initWithGlog:self archiveFile:archiveFile key:key];
+}
 
-#pragma mark ------------------- setting -------------------
+#pragma mark ------------------- others -------------------
 
-- (void)flush{
-    self.glog->flush();
+- (void)flush {
+    ((glog::Glog *)self.m_glog)->flush();
 }
 
 - (void)resetExpireSeconds:(int32_t )expireSeconds{
-    self.glog->resetExpireSeconds(expireSeconds);
+    ((glog::Glog *)self.m_glog)->resetExpireSeconds(expireSeconds);
 }
 
 #pragma mark ------------------- remove archive -------------------
@@ -169,79 +138,75 @@
         NSLog(@"The file cannot be empty");
         return ;
     }
-    self.glog->removeArchiveFile([archiveFile UTF8String]);
+    ((glog::Glog *)self.m_glog)->removeArchiveFile([archiveFile UTF8String]);
 }
 
 - (void)removeAll{
-    self.glog->removeAll();
+    ((glog::Glog *)self.m_glog)->removeAll();
 }
 
 #pragma mark ------------------- get archive -------------------
 
 - (NSArray *)getArchiveSnapshot{
-    return [self getArchiveSnapshot:true minLogNum:SIZE_T_MAX totalLogSize:0];
+    return [self getArchiveSnapshot:true minLogNum:0 totalLogSize:0];
 }
 
 - (NSArray *)getArchiveSnapshot:(bool )flush minLogNum:(size_t )minLogNum totalLogSize:(size_t)totalLogSize{
     vector<string> archiveFiles;
     glog::ArchiveCondition condition{flush,minLogNum,totalLogSize};
-    self.glog->getArchiveSnapshot(archiveFiles, condition,glog::FileOrder::CreateTimeAscending);
+    ((glog::Glog *)self.m_glog)->getArchiveSnapshot(archiveFiles, condition,glog::FileOrder::CreateTimeAscending);
     return [self getArrayFromVector:archiveFiles];
 }
 
-- (NSArray *)getArchivesOfDate:(time_t )epochSeconds{
-    NSMutableArray *archiveArr = [[NSMutableArray alloc]init];
+- (NSArray *)getArchivesOfDate:(time_t)epochSeconds {
+    NSMutableArray *archiveArr = [[NSMutableArray alloc] init];
     vector<string> archiveFiles;
-    self.glog->getArchivesOfDate(epochSeconds, archiveFiles);
-    for(auto &archiveFile:archiveFiles) {
+    ((glog::Glog *)self.m_glog)->getArchivesOfDate(epochSeconds, archiveFiles);
+    for (auto &archiveFile : archiveFiles) {
         NSString *filePath = [NSString stringWithUTF8String:archiveFile.c_str()];
         [archiveArr addObject:filePath];
     }
     return archiveArr;
 }
 
-- (size_t)getCacheSize{
-    return self.glog->getCacheSize();
+- (size_t)getCacheSize {
+    return ((glog::Glog *)self.m_glog)->getCacheSize();
 }
 
 #pragma mark ------------------- destroy -------------------
 
-- (void)destroy{
-    glog::Glog::destroy([self.config.glogName UTF8String]);
+- (void)destroy {
+    glog::Glog::destroy([self.m_protoName UTF8String]);
 }
 
-+ (void)destroyAll{
++ (void)destroyAll {
     glog::Glog::destroyAll();
 }
 
 #pragma mark ------------------- other -------------------
 
--(NSArray *)getArrayFromVector:(vector<string> )vec{
-    NSMutableArray *verArr = [[NSMutableArray alloc]init];
-    for(auto &item:vec) {
+- (NSArray *)getArrayFromVector:(vector<string>)vector {
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (auto &item : vector) {
         NSString *value = [NSString stringWithUTF8String:item.c_str()];
         if ([value isKindOfClass:[NSString class]]) {
-            [verArr addObject:value];
+            [array addObject:value];
         }
     }
-    return verArr;
+    return array;
 }
 
-+(BOOL) isBlankString:(NSString *)string {
++ (BOOL)isBlankString:(NSString *)string {
     if (string == nil || string == NULL || [string isKindOfClass:[NSNull class]]) {
         return YES;
     }
     if (![string isKindOfClass:[NSString class]]) {
         return YES;
     }
-    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0) {
+    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0) {
         return YES;
     }
     return NO;
 }
 
-void glogLogHandler(glog::InternalLogLevel level, const char *file, int line, const char *function, const std::string &message){
-    NSLog(@"file:%s, line:%d, message:%@",file,line,[NSString stringWithUTF8String:message.c_str()]);
-}
 @end
-

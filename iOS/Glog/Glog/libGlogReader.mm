@@ -8,50 +8,45 @@
 #import "GlogReader.h"
 #import <GlogCore/GlogReader.h>
 #import <GlogCore/Glog.h>
+#import "Glog.h"
 
 @interface GlogReader()
 
-@property(nonatomic, strong)NSString *archiveFile;
-
-@property(nonatomic) glog::GlogReader *reader;
+@property(nonatomic) glog::GlogReader *m_reader;
+@property(nonatomic) glog::Glog *m_glog;
 
 @end
 
 @implementation GlogReader
-+ (GlogReader *)initialize:(NSString *)glogName archiveFile:(NSString *)archiveFile{
-    GlogReader *reader = [[GlogReader alloc]init];
-    [reader openReader:glogName archiveFile:archiveFile];
-    return reader;
-}
-- (void)openReader:(NSString *)glogName archiveFile:(NSString *)archiveFile{
-    glog::Glog *glog = [self getGlog:glogName];
-    self.reader = glog->openReader([archiveFile UTF8String]);
+
+- (instancetype)initWithGlog:(Glog *)glog archiveFile:(NSString *)archiveFile key:(NSString *)key {
+    if (self = [super init]) {
+        if (glog && glog.m_glog) {
+            std::string priKey = key ? string{[key UTF8String]} : "";
+            self.m_glog = (glog::Glog *)glog.m_glog;
+            self.m_reader = self.m_glog->openReader([archiveFile UTF8String], &priKey);
+        }
+    }
+    return self;
 }
 
-- (void)closeReader:(NSString *)glogName{
-    glog::Glog *glog = [self getGlog:glogName];
-    glog->closeReader(self.reader);
-    self.reader = nil;
+- (void)dealloc {
+    [self close];
 }
 
-- (glog::Glog *)getGlog:(NSString *)glogName{
-    std::unique_lock<std::recursive_mutex> lock(*glog::g_instanceMutex);
-    auto itr = glog::g_instanceMap->find([glogName UTF8String]);
-    if (itr != glog::g_instanceMap->end()) {
-        glog::Glog *glog = itr->second;
-        return glog;
-    }else{
-        return nil;
+- (void)close {
+    if (self.m_glog && self.m_reader) {
+        self.m_glog->closeReader(self.m_reader);
     }
 }
 
 - (NSInteger )read:(NSData **)data{
-    if (!self.reader) {
-        NSLog(@"read error");
+    if (!self.m_reader) {
+        NSLog(@"fail to open reader");
         return -1;
     }
     glog::GlogBuffer outBuf(glog::SINGLE_LOG_CONTENT_MAX_LENGTH);
-    NSInteger length = self.reader->read(outBuf);
+    NSInteger length = self.m_reader->read(outBuf);
     if (length <= 0) {
         return length;
     }

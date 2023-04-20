@@ -25,7 +25,4 @@ typedef NS_ENUM(NSUInteger, GlogEncryptMode) {
     GlogEncryptMode_AES = 2
 };
 
-
-
-
 #endif /* GlogHeader_h */

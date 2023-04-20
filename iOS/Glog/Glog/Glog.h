@@ -14,21 +14,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Glog : NSObject
 
-+ (nullable instancetype)defaultGlog;
+@property(nonatomic) void *m_glog;
 
-+ (nullable instancetype)initialize:(GlogConfig *)config;
+- (instancetype)init NS_UNAVAILABLE;
 
-+ (nullable instancetype)initializeGlog:(nullable NSString *)glogName;
++ (void)initialize:(GlogInternalLogLevel)level;
 
-+ (nullable instancetype)initializeGlog:(nullable NSString *)glogName rootDir:(nullable NSString *)rootDir;
++ (instancetype)glogWithConfig:(GlogConfig *)config;
 
 - (bool)write:(NSData *)data;
 
-- (bool)writeString:(NSString *)dataString;
-
-- (bool)writeDictionary:(NSDictionary *)dataDictionary;
-
-- (NSArray *)readArchiveFile:(NSString *)archiveFile;
+- (NSArray *)readArchiveFile:(NSString *)archiveFile key:(NSString *)key;
 
 - (void)removeArchiveFile:(NSString *)archiveFile;
 
@@ -38,6 +34,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSArray *)getArchiveSnapshot;
 
+/**
+ * get archive files snapshot, if flush == true, either total log number in cache >= minLogNum or
+ * total log size in cache >= totalLogSize will trigger flush.
+ */
 - (NSArray *)getArchiveSnapshot:(bool )flush minLogNum:(size_t )minLogNum totalLogSize:(size_t)totalLogSize;
 
 - (NSArray *)getArchivesOfDate:(time_t )epochSeconds;
@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (GlogReader *)openReader:(NSString *)archiveFile;
 
-- (void)closeReader:(GlogReader *)reader;
+- (GlogReader *)openReader:(NSString *)archiveFile key:(NSString*)key;
 
 + (void)destroyAll;
 
