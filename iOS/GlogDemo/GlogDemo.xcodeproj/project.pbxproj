@@ -16,7 +16,6 @@
 		7E8A663E2833DD4700B3E4F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A663D2833DD4700B3E4F3 /* main.m */; };
 		7E8A66482833DD4700B3E4F3 /* GlogDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A66472833DD4700B3E4F3 /* GlogDemoTests.m */; };
 		7E8A66532833DD4700B3E4F3 /* GlogDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E8A66522833DD4700B3E4F3 /* GlogDemoUITests.m */; };
-		7E8A66B12833E18200B3E4F3 /* Glog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8A666B2833DD7D00B3E4F3 /* Glog.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E8A66B12833E18200B3E4F3 /* Glog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P44B3LZM24;
 				INFOPLIST_FILE = GlogDemo/Info.plist;
@@ -534,6 +533,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P44B3LZM24;
 				INFOPLIST_FILE = GlogDemo/Info.plist;

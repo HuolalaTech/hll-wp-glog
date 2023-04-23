@@ -7,16 +7,15 @@
 
 #import <Foundation/Foundation.h>
 
-
 NS_ASSUME_NONNULL_BEGIN
+
+@class Glog;
 
 @interface GlogReader : NSObject
 
-+ (GlogReader *)initialize:(NSString *)glogName archiveFile:(NSString *)archiveFile;
+- (instancetype)init NS_UNAVAILABLE;
 
-- (void)openReader:(NSString *)glogName archiveFile:(NSString *)archiveFile;
-
-- (void)closeReader:(NSString *)glogName;
+- (instancetype)initWithGlog:(Glog *)glog archiveFile:(NSString *)archiveFile key:(NSString *)key;
 
 - (NSInteger )read:(NSData **)data;
 

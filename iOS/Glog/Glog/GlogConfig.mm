@@ -7,29 +7,27 @@
 
 #import "GlogConfig.h"
 
-#define defaultRootDic @"glogDefaults"
-
 @implementation GlogConfig
 
-+ (instancetype)defaultConfig{
-    GlogConfig *glogConfig = [[GlogConfig alloc]init];
-    glogConfig.glogName = defaultRootDic;
-    glogConfig.rootDirectory = [self getRootDirectory:@"glogDefault"];
-    glogConfig.incrementalArchive = false;
-    glogConfig.async = false;
-    glogConfig.expireSeconds = 7 * 24 * 60 * 60;//默认7天
-    glogConfig.totalArchiveSizeLimit = 16 * 1024 *1024;//默认16 M
-    glogConfig.compressMode = GlogCompressMode_None;
-    glogConfig.encryptMode = GlogEncryptMode_None;
-    glogConfig.serverPublicKey = nil;
-    glogConfig.logLevel = GlogInternalLog_Info;
-    return glogConfig;
+- (instancetype)initWithProtoName:(NSString *)protoName {
+    if (self = [super init]) {
+        self.protoName = protoName;
+        self.rootDirectory = [[GlogConfig documentDirectory] stringByAppendingString:@"/glog"];
+        self.async = true;
+        self.expireSeconds = 7 * 24 * 60 * 60;         // 7 day
+        self.totalArchiveSizeLimit = 16 * 1024 * 1024; // 16 MB
+        self.compressMode = GlogCompressMode_Zlib;
+        self.incrementalArchive = false;
+        self.encryptMode = GlogEncryptMode_None;
+        self.serverPublicKey = @"";
+    }
+    return self;
 }
-+ (NSString *)getRootDirectory:(NSString *)glogName{
+
++ (NSString *)documentDirectory {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-    NSString *rootDir = (NSString *) [paths firstObject];
-    NSLog(@"%@",rootDir);
-    return rootDir;
+    NSString *documentPath = (NSString *) [paths firstObject];
+    return documentPath;
 }
 
 @end

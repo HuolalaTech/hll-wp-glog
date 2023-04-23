@@ -31,8 +31,8 @@
 		7EF311FC2830C0A100A62D6E /* GlogConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF311FA2830C0A100A62D6E /* GlogConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7EF311FD2830C0A100A62D6E /* GlogConfig.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EF311FB2830C0A100A62D6E /* GlogConfig.mm */; };
 		7EF5D8ED25F23D8100B69A22 /* GlogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF5D8EC25F23D8100B69A22 /* GlogTests.m */; };
-		A1BEA52928AA3A5D002EB5D5 /* GlogWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF311B52830B6AA00A62D6E /* GlogWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A1BEA52A28AA3A63002EB5D5 /* GlogConfigManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EF311B62830B6AA00A62D6E /* GlogConfigManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1BEA52928AA3A5D002EB5D5 /* (null) in Headers */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Public, ); }; };
+		A1BEA52A28AA3A63002EB5D5 /* (null) in Headers */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +61,10 @@
 
 /* Begin PBXFileReference section */
 		22D2A8F326F343480066D42E /* Core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Core.xcodeproj; path = ../../Core/Core.xcodeproj; sourceTree = "<group>"; };
+		22D739F229F4DA9800F02C86 /* GlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E284506260C4268000BC369 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/lib/libc++.tbd"; sourceTree = DEVELOPER_DIR; };
 		7E7D51192833AE0300BF9106 /* GlogReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlogReader.h; sourceTree = "<group>"; };
 		7E7D511A2833AE0300BF9106 /* libGlogReader.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = libGlogReader.mm; sourceTree = "<group>"; };
-		7E801D4F28699DC60010FBE4 /* GlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E8A669A2833DF8100B3E4F3 /* Glog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Glog.xcodeproj; sourceTree = "<group>"; };
 		7E8A669D2833DFA200B3E4F3 /* Glog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Glog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EF311B72830B6AA00A62D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 				7EF5D8EB25F23D8000B69A22 /* GlogTests */,
 				7EF5D92F25F23DFE00B69A22 /* Frameworks */,
 				7E8A669D2833DFA200B3E4F3 /* Glog.framework */,
-				7E801D4F28699DC60010FBE4 /* GlogTests.xctest */,
+				22D739F229F4DA9800F02C86 /* GlogTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,10 +165,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EF311E72830BF9200A62D6E /* Glog.h in Headers */,
-				A1BEA52A28AA3A63002EB5D5 /* GlogConfigManager.h in Headers */,
+				A1BEA52A28AA3A63002EB5D5 /* (null) in Headers */,
 				7EF311FC2830C0A100A62D6E /* GlogConfig.h in Headers */,
 				7E7D511B2833AE0300BF9106 /* GlogReader.h in Headers */,
-				A1BEA52928AA3A5D002EB5D5 /* GlogWrapper.h in Headers */,
+				A1BEA52928AA3A5D002EB5D5 /* (null) in Headers */,
 				7EF311D82830B8D400A62D6E /* GlogHandler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,7 +210,7 @@
 			);
 			name = GlogTests;
 			productName = GlogTests;
-			productReference = 7E801D4F28699DC60010FBE4 /* GlogTests.xctest */;
+			productReference = 22D739F229F4DA9800F02C86 /* GlogTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -466,6 +466,7 @@
 		7EF5D8F325F23D8100B69A22 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
@@ -505,6 +506,7 @@
 		7EF5D8F425F23D8100B69A22 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;

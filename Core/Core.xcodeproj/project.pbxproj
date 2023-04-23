@@ -83,20 +83,15 @@
 		22D2A81326F1F37B0066D42E /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		22D2A81426F1F37B0066D42E /* AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESCrypt.h; sourceTree = "<group>"; };
 		22D2A81526F1F37B0066D42E /* AESCrypt.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = AESCrypt.cpp; sourceTree = "<group>"; };
-		22D2A82326F1F4010066D42E /* openssl_md5_one.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = openssl_md5_one.cpp; sourceTree = "<group>"; };
 		22D2A82426F1F4010066D42E /* openssl_cfb128.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = openssl_cfb128.cpp; sourceTree = "<group>"; };
-		22D2A82526F1F4010066D42E /* openssl_md5_locl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_md5_locl.h; sourceTree = "<group>"; };
-		22D2A82726F1F4010066D42E /* openssl_md32_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_md32_common.h; sourceTree = "<group>"; };
 		22D2A82826F1F4010066D42E /* openssl_opensslconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_opensslconf.h; sourceTree = "<group>"; };
 		22D2A82A26F1F4010066D42E /* openssl_aes_core.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = openssl_aes_core.cpp; sourceTree = "<group>"; };
-		22D2A82B26F1F4010066D42E /* openssl_md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_md5.h; sourceTree = "<group>"; };
 		22D2A82C26F1F4010066D42E /* openssl_cbc128.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = openssl_cbc128.cpp; sourceTree = "<group>"; };
 		22D2A82D26F1F4010066D42E /* openssl_aes_locl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_aes_locl.h; sourceTree = "<group>"; };
 		22D2A82E26F1F4010066D42E /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		22D2A82F26F1F4010066D42E /* openssl_aesv8-armx.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = "openssl_aesv8-armx.S"; sourceTree = "<group>"; };
 		22D2A83126F1F4010066D42E /* openssl_aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_aes.h; sourceTree = "<group>"; };
 		22D2A83226F1F4010066D42E /* openssl_arm_arch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openssl_arm_arch.h; sourceTree = "<group>"; };
-		22D2A83326F1F4010066D42E /* openssl_md5_dgst.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = openssl_md5_dgst.cpp; sourceTree = "<group>"; };
 		22D2A83426F1F4010066D42E /* openssl_aes-armv4.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = "openssl_aes-armv4.S"; sourceTree = "<group>"; };
 		22D2A83526F1F4010066D42E /* StopWatch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StopWatch.hpp; sourceTree = "<group>"; };
 		22D2A83726F1F4010066D42E /* uECC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uECC.h; sourceTree = "<group>"; };
@@ -119,7 +114,7 @@
 		22D398D92612FA66008693BC /* MessageQueue.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = MessageQueue.cpp; sourceTree = "<group>"; };
 		22D398DA2612FA66008693BC /* ThreadLock.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ThreadLock.cpp; sourceTree = "<group>"; };
 		22D398DB2612FA66008693BC /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
-		22D398DC2612FA66008693BC /* GlogPredef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlogPredef.h; sourceTree = "<group>"; };
+		22D398DC2612FA66008693BC /* GlogPredef.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = GlogPredef.h; sourceTree = "<group>"; };
 		22D398DD2612FA67008693BC /* Glog.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Glog.cpp; sourceTree = "<group>"; };
 		22D398DE2612FA67008693BC /* Compressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Compressor.h; sourceTree = "<group>"; };
 		22D398DF2612FA67008693BC /* GlogFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlogFile.h; sourceTree = "<group>"; };
@@ -165,20 +160,15 @@
 		22D2A82226F1F4010066D42E /* openssl */ = {
 			isa = PBXGroup;
 			children = (
-				22D2A82326F1F4010066D42E /* openssl_md5_one.cpp */,
 				22D2A82426F1F4010066D42E /* openssl_cfb128.cpp */,
-				22D2A82526F1F4010066D42E /* openssl_md5_locl.h */,
-				22D2A82726F1F4010066D42E /* openssl_md32_common.h */,
 				22D2A82826F1F4010066D42E /* openssl_opensslconf.h */,
 				22D2A82A26F1F4010066D42E /* openssl_aes_core.cpp */,
-				22D2A82B26F1F4010066D42E /* openssl_md5.h */,
 				22D2A82C26F1F4010066D42E /* openssl_cbc128.cpp */,
 				22D2A82D26F1F4010066D42E /* openssl_aes_locl.h */,
 				22D2A82E26F1F4010066D42E /* README */,
 				22D2A82F26F1F4010066D42E /* openssl_aesv8-armx.S */,
 				22D2A83126F1F4010066D42E /* openssl_aes.h */,
 				22D2A83226F1F4010066D42E /* openssl_arm_arch.h */,
-				22D2A83326F1F4010066D42E /* openssl_md5_dgst.cpp */,
 				22D2A83426F1F4010066D42E /* openssl_aes-armv4.S */,
 			);
 			path = openssl;
