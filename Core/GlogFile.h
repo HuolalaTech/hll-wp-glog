@@ -14,6 +14,7 @@
 #include <string>
 #include <sys/mman.h>
 #include <unistd.h>
+#include <functional>
 
 namespace glog {
 
