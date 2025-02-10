@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Huolala-Glog"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "Glog is a cross platform high-performance log storage framework developed by Huolala."
   s.author       = { 'issac.zeng' => 'extremetsa@gmail.com' }
 
@@ -21,6 +21,6 @@ Pod::Spec.new do |s|
 
   s.framework    = "CoreFoundation"
   s.libraries    = "z", "c++"
-  s.dependency 'GlogCore', '~> 1.0.2'
+  s.dependency 'GlogCore', '~> 1.0.3'
 end
 
