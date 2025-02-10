@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "GlogCore"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "Glog is a cross platform high-performance log storage framework developed by Huolala."
   s.author       = { 'issac.zeng' => 'extremetsa@gmail.com' }
 
